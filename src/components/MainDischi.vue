@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row">
+  <div class="back">
+    <div class="cards container">
       <CardDischi v-for="card in cards" :key="card.id"
         :cards-data="card"
       />
@@ -40,5 +40,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.back {
+  background-color: #1E2D3B;
+  padding: 5rem 0;
 
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
 </style>
