@@ -23,8 +23,8 @@ export default {
   },
   created () {
     axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-      .then(function (response) {
-        console.log(response.data.response[0])
+      .then((response) => {
+        console.log(this.cards)
         this.cards = response.data.response.map((el) => {
           return {
             image: el.poster,
@@ -34,6 +34,7 @@ export default {
           }
         })
       })
+    console.log(this.cards)
   }
 }
 </script>
