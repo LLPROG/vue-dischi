@@ -3,11 +3,16 @@
     <div v-if="cards == null" class="loader">
       <!-- loader -->
     </div>
-    <div  v-else class="container">
-      <div class="cards row row-cols-6">
-      <CardDischi v-for="card in cards" :key="card.id"
-        :cards-data="card"
-      />
+    <div v-else class="container">
+      <div  v-if="selectedValue !== 'All' " class="cards row row-cols-6">
+        <CardDischi v-for="card in setValue" :key="card.id"
+          :cards-data="card"
+        />
+      </div>
+      <div  v-else class="cards row row-cols-6">
+        <CardDischi v-for="card in cards" :key="card.id"
+          :cards-data="card"
+        />
       </div>
     </div>
   </div>
@@ -18,6 +23,9 @@ import CardDischi from './CardDischi.vue'
 import axios from 'axios'
 export default {
   name: 'MainDischi',
+  props: {
+    selectedValue: String
+  },
   data () {
     return {
       cards: null
@@ -30,17 +38,23 @@ export default {
     setTimeout(() => {
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((response) => {
-          console.log(this.cards)
+          console.log(response.data)
           this.cards = response.data.response.map((el) => {
             return {
               image: el.poster,
               title: el.title,
               author: el.author,
-              year: el.year
+              year: el.year,
+              genre: el.genre
             }
           })
         })
-    }, 3000)
+    }, 1000)
+  },
+  computed: {
+    setValue () {
+      return this.cards.filter(obj => obj.genre === this.selectedValue)
+    }
   }
 }
 </script>

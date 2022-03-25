@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-dischi />
-    <main-dischi />
+    <header-dischi @onchange="setValue"/>
+    <main-dischi :selected-value="selected"/>
   </div>
 </template>
 
@@ -14,8 +14,20 @@ export default {
   components: {
     HeaderDischi,
     MainDischi
+  },
+  data () {
+    return {
+      selected: 'All'
+    }
+  },
+  methods: {
+    setValue (element) {
+      this.selected = element
+      console.log(element)
+    }
   }
 }
+
 </script>
 
 <style lang="scss">

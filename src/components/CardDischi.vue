@@ -1,7 +1,7 @@
 <template>
   <div class="my-card col">
     <img :src="cardsData.image" :alt="cardsData.title">
-    <h1 v-if="cardsData.title">{{ cardsData.title }}</h1>
+    <h1 v-if="cardsData.title" class="mt-2">{{ cardsData.title }}</h1>
     <p v-if="cardsData.author">{{ cardsData.author }}</p>
     <p v-if="cardsData.year">{{ cardsData.year }}</p>
   </div>

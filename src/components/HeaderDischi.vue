@@ -1,12 +1,22 @@
 <template>
   <header>
-
+    <selector-genre @onchange="onchange" />
   </header>
 </template>
 
 <script>
+import SelectorGenre from './SelectorGenre.vue'
 export default {
-  name: 'HeaderDischi'
+  name: 'HeaderDischi',
+  components: {
+    SelectorGenre
+  },
+  methods: {
+    onchange (selected) {
+      this.$emit('onchange', selected)
+      console.log(selected)
+    }
+  }
 }
 </script>
 
