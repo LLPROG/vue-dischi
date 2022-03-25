@@ -26,5 +26,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+label {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
 </style>

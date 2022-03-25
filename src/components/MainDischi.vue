@@ -62,6 +62,7 @@ export default {
 <style lang="scss" scoped>
 .back {
   background-color: #1E2D3B;
+  min-height: 100vh;
   padding: 5rem 0;
   .loader {
     position: relative;

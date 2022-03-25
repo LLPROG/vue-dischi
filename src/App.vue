@@ -33,5 +33,4 @@ export default {
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap";
 @import './assets/style.scss';
-
 </style>
