@@ -1,10 +1,14 @@
 <template>
   <div class="back">
-    <div v-if="cards == null" class="loader"></div>
-    <div v-else class="cards container">
+    <div v-if="cards == null" class="loader">
+      <!-- loader -->
+    </div>
+    <div  v-else class="container">
+      <div class="cards row row-cols-6">
       <CardDischi v-for="card in cards" :key="card.id"
         :cards-data="card"
       />
+      </div>
     </div>
   </div>
 </template>
@@ -76,6 +80,7 @@ export default {
 }
 .cards {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
 }

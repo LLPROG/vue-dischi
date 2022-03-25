@@ -1,5 +1,5 @@
 <template>
-  <div class="my-card">
+  <div class="my-card col">
     <img :src="cardsData.image" :alt="cardsData.title">
     <h1 v-if="cardsData.title">{{ cardsData.title }}</h1>
     <p v-if="cardsData.author">{{ cardsData.author }}</p>
@@ -19,8 +19,9 @@ export default {
 <style lang="scss" scoped>
 .my-card {
   background-color: #2E3A46;
-  width: calc(100% / 5 - 2rem);
+  // max-width: calc(100% / 5 - 2rem);
   height: 28rem;
+
   padding: 1rem;
   text-align: center;
   img {
