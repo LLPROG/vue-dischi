@@ -4,13 +4,8 @@
       <!-- loader -->
     </div>
     <div v-else class="container">
-      <div  v-if="selectedValue !== 'All' " class="cards row row-cols-6">
+      <div class="cards row row-cols-6">
         <CardDischi v-for="card in setValue" :key="card.id"
-          :cards-data="card"
-        />
-      </div>
-      <div  v-else class="cards row row-cols-6">
-        <CardDischi v-for="card in cards" :key="card.id"
           :cards-data="card"
         />
       </div>
@@ -24,7 +19,8 @@ import axios from 'axios'
 export default {
   name: 'MainDischi',
   props: {
-    selectedValue: String
+    selectedValue: String,
+    inputValue: String
   },
   data () {
     return {
@@ -53,7 +49,11 @@ export default {
   },
   computed: {
     setValue () {
-      return this.cards.filter(obj => obj.genre === this.selectedValue)
+      if (this.selectedValue === 'All') {
+        return this.cards.filter(obj => obj.author.toLowerCase().includes(this.inputValue.toLowerCase()))
+      } else {
+        return this.cards.filter(obj => obj.genre === this.selectedValue && obj.author.toLowerCase().includes(this.inputValue.toLowerCase()))
+      }
     }
   }
 }

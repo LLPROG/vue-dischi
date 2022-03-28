@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-dischi @onchange="setValue"/>
-    <main-dischi :selected-value="selected"/>
+    <header-dischi @onchange="setValueOption" @authorChange="setValueInput" />
+    <main-dischi :selected-value="selected" :input-value="userInput"/>
   </div>
 </template>
 
@@ -17,12 +17,17 @@ export default {
   },
   data () {
     return {
-      selected: 'All'
+      selected: 'All',
+      userInput: ''
     }
   },
   methods: {
-    setValue (element) {
+    setValueOption (element) {
       this.selected = element
+      console.log(element)
+    },
+    setValueInput (element) {
+      this.userInput = element
       console.log(element)
     }
   }
